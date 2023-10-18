@@ -32,7 +32,5 @@ public class GraphicOverlay extends View {
 
     }
 
-    public void addGraphics(com.example.mlseriesdemonstrator.helpers.vision.GraphicOverlay.Graphic graphic) {
 
-    }
 }

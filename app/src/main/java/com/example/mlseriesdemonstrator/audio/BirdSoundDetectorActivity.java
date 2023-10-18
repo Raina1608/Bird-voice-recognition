@@ -4,6 +4,8 @@ import android.media.AudioRecord;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mlseriesdemonstrator.helpers.MLAudioHelperActivity;
 
 import org.tensorflow.lite.support.audio.TensorAudio;
@@ -43,7 +45,7 @@ public class BirdSoundDetectorActivity extends MLAudioHelperActivity {
         // showing the audio recorder specification
         TensorAudio.TensorAudioFormat format = classifier.getRequiredTensorAudioFormat();
         String specs = "Number of channels: " + format.getChannels() + "\n"
-                            + "Sample Rate: " + format.getSampleRate();
+                + "Sample Rate: " + format.getSampleRate();
         specsTextView.setText(specs);
 
         // Creating and start recording
@@ -63,11 +65,11 @@ public class BirdSoundDetectorActivity extends MLAudioHelperActivity {
                 // Filtering out classifications with low probability
                 List<Category> finalOutput = new ArrayList<>();
 //                for (Classifications classifications : output) {
-                    for (Category category : output.get(0).getCategories()) {
-                        if (category.getLabel().equals("Bird") && category.getScore() > probabilityThreshold) {
-                            finalOutput.add(category);
-                        }
+                for (Category category : output.get(0).getCategories()) {
+                    if (category.getLabel().equals("Bird") && category.getScore() > probabilityThreshold) {
+                        finalOutput.add(category);
                     }
+                }
 //                }
 
                 if (finalOutput.isEmpty()) {
@@ -99,6 +101,8 @@ public class BirdSoundDetectorActivity extends MLAudioHelperActivity {
                         outputTextView.setText("Could not identify the bird");
                     } else {
                         outputTextView.setText(outputStr.toString());
+
+
                     }
                 });
             }

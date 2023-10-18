@@ -5,21 +5,21 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mlseriesdemonstrator.R;
 
-public abstract class MLAudioHelperActivity extends BaseHelperActivity {
+public class MLAudioHelperActivity extends BaseHelperActivity{
     public final static int REQUEST_RECORD_AUDIO = 2033;
 
     protected TextView outputTextView;
     protected TextView specsTextView;
+    protected ImageView birdOutput;
     protected Button startRecordingButton;
     protected Button stopRecordingButton;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public abstract class MLAudioHelperActivity extends BaseHelperActivity {
         specsTextView = findViewById(R.id.textViewSpec);
         startRecordingButton = findViewById(R.id.buttonStartRecording);
         stopRecordingButton = findViewById(R.id.buttonStopRecording);
+        birdOutput = findViewById(R.id.birdOutput);
 
         stopRecordingButton.setEnabled(false);
 

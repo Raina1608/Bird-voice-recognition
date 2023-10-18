@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mlseriesdemonstrator">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,6 +19,7 @@
         </intent>
         <intent>
             <action android:name="android.intent.action.GET_CONTENT" />
+
             <data android:mimeType="image/*" />
         </intent>
     </queries>
@@ -25,7 +31,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MLSeriesDemonstrator">
-        <activity android:name=".MainActivity" android:exported="true" android:screenOrientation="userPortrait">
+        <activity
+            android:name=".data_all"
+            android:exported="false" />
+        <activity
+            android:name=".birdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".aboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splashmain"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,51 +50,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".image.ImageClassificationActivity"
-            android:screenOrientation="userPortrait" />
+            android:name=".RegisterActivity"
+            android:exported="false" />
         <activity
-            android:name=".image.FlowerIdentificationActivity"
-            android:screenOrientation="userPortrait" />
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
-            android:name=".object.ObjectDetectionActivity"
-            android:screenOrientation="userPortrait" />
+            android:name=".welcome"
+            android:exported="false" />
         <activity
-            android:name=".object.FaceDetectionActivity"
-            android:screenOrientation="userPortrait" />
+            android:name=".splash3"
+            android:exported="false" />
+        <activity
+            android:name=".splash2"
+            android:exported="false" />
+        <activity
+            android:name=".splash1"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".audio.AudioClassificationActivity"
             android:screenOrientation="userPortrait" />
         <activity
             android:name=".audio.BirdSoundDetectorActivity"
             android:screenOrientation="userPortrait" />
-        <activity android:name=".text.SpamTextDetectionActivity"
-            android:screenOrientation="userPortrait" />
 
-        <activity android:name=".object.DriverDrowsinessDetectionActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity android:name=".object.PoseDetectionActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity android:name=".object.VisitorAnalysisActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity android:name=".object.FaceRecognitionActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity android:name=".object.ObscureFaceActivity"
-            android:screenOrientation="userPortrait" />
-
-        <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.iago.fileprovider1"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider" />
-        </provider>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
